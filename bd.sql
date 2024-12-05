@@ -20,6 +20,12 @@ CREATE TABLE IF NOT EXISTS Albom (
     year DATE NOT NULL 
 );
 
+CREATE TABLE IF NOT EXISTS AlbomSinger (
+    albom_id INTEGER REFERENCES Albom(id),
+	singer_id INTEGER REFERENCES Singer(id),
+	CONSTRAINT as PRIMARY KEY (albom_id, singer_id)
+);
+
 CREATE TABLE IF NOT EXISTS Track (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(40) NOT NULL,
